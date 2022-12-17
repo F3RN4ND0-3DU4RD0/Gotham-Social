@@ -6,7 +6,7 @@ class NewsCard extends HTMLElement {
         const shadow = this.attachShadow({ mode: "open" });
 
         shadow.appendChild(this.build());
-        shadow.appendChild(this.style());
+        shadow.appendChild(this.styles());
     }
 
     build() {
@@ -15,14 +15,14 @@ class NewsCard extends HTMLElement {
         componentRoot.setAttribute("class", "card");
 
         const cardLeft = document.createElement("div");
-        cardLeft.setAttribute("class", "card__Left");
+        cardLeft.setAttribute("class", "card_left");
 
         const autor = document.createElement("span");
         autor.textContent = "By " + (this.getAttribute("autor") || "Anonymous");
 
-        const tituloNoticia = document.createElement("a");
-        tituloNoticia.href = this.getAttribute("url-meuGithub");
+        const tituloNoticia = document.createElement("a");        
         tituloNoticia.textContent = this.getAttribute("title");
+        tituloNoticia.href = this.getAttribute("url-meuGithub");
 
         const subTituloNoticia = document.createElement("p");
         subTituloNoticia.textContent = this.getAttribute("subtitle");
@@ -50,38 +50,45 @@ class NewsCard extends HTMLElement {
         return componentRoot;
     }
 
-    style() {
+    styles() {
         const style = document.createElement("style");
         style.textContent = `
         .card{
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
             width: 80%;
             margin-bottom: 30px;
             box-shadow: 5px 9px 25px 10px #808080, 5px 5px 10px 1px #000;
         }
-
-        .card__Left{
+        
+        .card_left{
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            padding-left: 15px;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-left: 15px;
+                    
         }
-
-        .card__Left > span{
+        
+        .card_left > span {
             font-weight: 400;
+            margin-top: 10px;
         }
-
-        .card__Left > h1{
+        
+        .card_left > a {
             padding-top: 10px;
             padding-bottom: 5px;
+            font-size: 30px;
             font-weight: bold;
+            color: black;
+            text-decoration: none;
         }
-
-        .card__Left > p{
+        
+        .card_left > p {
             padding-top: 5px;
-            color: rgb(80, 80, 80);
+            color: rgb(80, 78, 78);
         }
-                `
+    `
 
         return style;
     }
