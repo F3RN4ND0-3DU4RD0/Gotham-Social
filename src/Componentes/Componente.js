@@ -18,14 +18,14 @@ class NewsCard extends HTMLElement {
         cardLeft.setAttribute("class", "card__Left");
 
         const autor = document.createElement("span");
-        autor.textContent = "By Fernando Eduardo";
+        autor.textContent = "By " + (this.getAttribute("autor") || "Anonymous");
 
         const tituloNoticia = document.createElement("a");
-        tituloNoticia.setAttribute("href", "https://github.com/F3RN4ND0-3DU4RD0/F3RN4ND0-3DU4RD0");
-        tituloNoticia.textContent = "Um novo programador chegou na área!";
+        tituloNoticia.href = this.getAttribute("url-meuGithub");
+        tituloNoticia.textContent = this.getAttribute("title");
 
         const subTituloNoticia = document.createElement("p");
-        subTituloNoticia.textContent = "Ainda aprendendo, mas com boas expectativas e muita vontade.";
+        subTituloNoticia.textContent = this.getAttribute("subtitle");
 
 
         cardLeft.appendChild(autor);
@@ -37,7 +37,8 @@ class NewsCard extends HTMLElement {
         cardRight.setAttribute("class", "card__Right");
 
         const Imagem = document.createElement("img");
-        Imagem.setAttribute("src", "/assets/vendetta.jpg");
+        Imagem.src = this.getAttribute("url-image") || "/assets/Img-Default.png";
+        Imagem.alt = "Foto do Batman"
 
         cardRight.appendChild(Imagem);
 
@@ -50,9 +51,39 @@ class NewsCard extends HTMLElement {
     }
 
     style() {
+        const style = document.createElement("style");
+        style.textContent = `
+        .card{
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            margin-bottom: 30px;
+            box-shadow: 5px 9px 25px 10px #808080, 5px 5px 10px 1px #000;
+        }
 
+        .card__Left{
+            justify-content: center;
+            padding-left: 15px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
 
-        return
+        .card__Left > span{
+            font-weight: 400;
+        }
+
+        .card__Left > h1{
+            padding-top: 10px;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .card__Left > p{
+            padding-top: 5px;
+            color: rgb(80, 80, 80);
+        }
+                `
+
+        return style;
     }
 
 }

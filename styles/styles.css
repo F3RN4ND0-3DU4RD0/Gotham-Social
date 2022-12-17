@@ -10,11 +10,8 @@
     flex-direction: row;
     width: 80%;
     margin-bottom: 30px;
-
     box-shadow: 5px 9px 25px 10px #808080, 5px 5px 10px 1px #000;
 }
-
-
 
 .card_left{
     justify-content: center;
