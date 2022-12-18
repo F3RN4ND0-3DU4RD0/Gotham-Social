@@ -1,36 +1,35 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.card{
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    margin-bottom: 30px;
-    box-shadow: 5px 9px 25px 10px #808080, 5px 5px 10px 1px #000;
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-bottom: 30px;
+  box-shadow: 5px 9px 25px 10px #808080, 5px 5px 10px 1px #000;
 }
 
-.card_left{
-    justify-content: center;
-    padding-left: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+.card_left {
+  justify-content: center;
+  padding-left: 15px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.card_left > span{
-    font-weight: 400;
+.card_left > span {
+  font-weight: 400;
 }
 
-.card_left > h1{
-    padding-top: 10px;
-    padding-bottom: 5px;
-    font-weight: bold;
+.card_left > h1 {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-weight: bold;
 }
 
-.card_left > p{
-    padding-top: 5px;
-    color: rgb(80, 78, 78);
+.card_left > p {
+  padding-top: 5px;
+  color: rgb(80, 78, 78);
 }
